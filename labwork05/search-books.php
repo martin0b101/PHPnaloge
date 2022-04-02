@@ -24,7 +24,7 @@ if (isset($_GET["query"])) {
 
 <ul>
     <?php foreach (BookDB::find($query) as $book): ?>
-        <li><?= $book ?></li>
+        <a href="book-detail.php?id=<?=$book->id?>"><li><?= $book->author ?>: <?= $book->title ?></li></a>
     <?php endforeach; ?>
 </ul>
 

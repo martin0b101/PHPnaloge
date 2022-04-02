@@ -15,6 +15,6 @@ require_once ("BookDB.php");
     <?php foreach (BookDB::getAllBooks() as $book): 
     # Implemet a nicer presentation for a book, for instance: <li>Author: Title (XY EUR)</li>
     ?>
-        <li><?= $book ?></li>
+        <a href="book-detail.php?id=<?=$book->id?>"><li><?= $book->author?>: <?=$book->title?></li></a>
     <?php endforeach; ?>
 </ul>

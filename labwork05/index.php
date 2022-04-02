@@ -14,6 +14,10 @@
     - string for date: "d. m. Y"
     - string for time: "H:i"
 */
+echo "Welcome to the PHP page. Today's date is " . date("d. m. Y") . " and the hoyr is " . date("H:i");
+
+
+
 
 ?></p>
 

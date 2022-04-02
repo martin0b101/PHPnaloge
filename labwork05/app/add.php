@@ -1,12 +1,24 @@
 <?php 
+
+#importam userdb datoteko
+require_once("UserDB.php");
+
+
+$name = $_POST["first"];
+$last = $_POST["last"];
+
+UserDB::save_to_db($name, $last);
 /* TODO
 
 1. Import the UserDB.php file.
 2. Read the data from the HTTP POST request by using the $_POST global field:
    e. g. $_POST["variable_name]
 3. Call the save_to_db() function to save the user to the DB.
-
 */
+
+
+
+
 
 ?>
 

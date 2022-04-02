@@ -6,13 +6,31 @@
 <?php
 
 // Complete function isPrime($number) by implementing a simple algorithm
+
+
+
 function isPrime($number) {
-    # TODO
-    return false;
+    $numOfDividers = 0;
+    if ($number == 1) {
+        return FALSE;
+    }if ($number == 2) {
+        return TRUE;
+    }
+    for ($i=1; $i <= $number; $i++) { 
+        if($number % $i == 0){
+            $numOfDividers++;
+        }
+    }
+    if ($numOfDividers > 2) {
+        return FALSE;
+    }
+    return TRUE;
 }
 
-$number = $_GET["number"];
 
+
+
+$number = $_GET["number"];
 ?>
 
 <h1>Checking if <?=$number?> is prime</h1>

@@ -18,10 +18,10 @@ class BookDB {
      */
     public static function getAllBooks() {
         $books = array();
-        $books[1] = new Book(1, "Prolog Programming for Artificial Intelligence", "Ivan Bratko");
-        $books[2] = new Book(2, "Arhitektura računalniških sistemov", "Dušan Kodek");
-        $books[3] = new Book(3, "Managing Information Systems Security and Privacy", "Denis Trček");
-        $books[4] = new Book(4, "Študijski koledar", "FRI");
+        $books[1] = new Book(1, "Prolog Programming for Artificial Intelligence", "Ivan Bratko", 50);
+        $books[2] = new Book(2, "Arhitektura računalniških sistemov", "Dušan Kodek", 100);
+        $books[3] = new Book(3, "Managing Information Systems Security and Privacy", "Denis Trček", 57);
+        $books[4] = new Book(4, "Študijski koledar", "FRI", 200);
 
         return $books;
     }
@@ -44,7 +44,18 @@ class BookDB {
     public static function find($query) {
         # Implement search functionality.
         # You may find the following function useful http://php.net/stripos
-        
-        return self::getAllBooks();
+
+        $arrayOfId = array();
+        foreach (self::getallBooks() as $book) {
+
+            $authorFound = stripos($book->author, $query);
+            $titleFound = stripos($book->title, $query);
+
+            //found element
+            if ($authorFound !== false || $titleFound !== false) {
+                $arrayOfId[$book->id] = new Book($book->id, $book->title, $book->author, $book->price);
+            }
+        }
+        return $arrayOfId;
     }
 }
