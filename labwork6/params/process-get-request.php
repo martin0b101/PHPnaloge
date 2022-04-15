@@ -5,7 +5,7 @@
 <?php 
 
 // var_dump($var) simply outputs the contents of $var, its type and size
-var_dump($_GET);
+
 
 /*
  * The script should output the following string:
@@ -15,3 +15,14 @@ var_dump($_GET);
  *  - and output a nicely formatted string using the send variables, for instance:
  *        "Hello $first_name $last_name, the time is <current_time_in_H:i_format>."
 */
+output_name();
+
+function output_name(){
+    $name = $_GET["first_name"];
+    $lastname = $_GET["last_name"];
+    if (!empty($name) && !empty($lastname)) {
+        echo "Hello " . $name . " " . $lastname .", the time is " . date("h:i", time());
+    }else{
+        echo "Required parameters are missing";
+    }
+}

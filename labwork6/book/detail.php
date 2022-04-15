@@ -15,6 +15,7 @@ require_once ("BookDB.php");
     <li>Author: <b><?= $book["author"] ?></b></li>
     <li>Title: <b><?= $book["title"] ?></b></li>
     <li>Price: <b><?= $book["price"] ?> EUR</b></li>
+    <li>Year: <b><?= $book["year"] ?></b></li>
 </ul>
 
 <p><a href="edit.php?id=<?= $_GET["id"] ?>">Edit</a></p>

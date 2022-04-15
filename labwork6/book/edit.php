@@ -5,6 +5,7 @@ require_once "BookDB.php";
 $edit = isset($_POST["author"]) && !empty($_POST["author"]) && 
             isset($_POST["title"]) && !empty($_POST["title"]) &&
             isset($_POST["price"]) && !empty($_POST["price"]) &&
+            isset($_POST["year"]) && !empty($_POST["year"]) &&
             isset($_POST["id"]) && !empty($_POST["id"]);
 
 $delete = isset($_POST["delete_confirmation"]) && 
@@ -13,7 +14,7 @@ $delete = isset($_POST["delete_confirmation"]) &&
 // If we send a valid POST request (contains all required data)
 if ($edit) {
     try {
-        BookDB::update($_POST["id"], $_POST["author"], $_POST["title"], $_POST["price"]);
+        BookDB::update($_POST["id"], $_POST["author"], $_POST["title"], $_POST["price"], $_POST["year"]);
         // Go to the detail page
         header(sprintf("Location: detail.php?id=%d", $_POST["id"]));
     } catch (Exception $e) {
@@ -67,6 +68,9 @@ if ($edit) {
 
     <p><label for="price">Price:</label>
     <input type="number" name="price" id="price" value="<?= $book["price"] ?>" /></p>
+
+    <p><label for="Year">Year:</label>
+    <input type="number" name="year" id="year" value="<?= $book["year"] ?>" /></p>
 
     <p><button type="submit">Update record</button></p>
 </form>
